@@ -1,0 +1,56 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.co.caprica</groupId>
+    <artifactId>juds</artifactId>
+    <version>0.94.1</version>
+
+    <name>juds</name>
+    <description>Unix Domain Sockets for Java.</description>
+    <url>https://github.com/caprica/juds</url>
+    <inceptionYear>2014</inceptionYear>
+
+    <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>LGPL v2.1</name>
+            <url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Caprica Software Limited</name>
+        <url>http://www.capricasoftware.co.uk</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>mark</id>
+            <name>Mark Lee</name>
+            <email>mark.lee@capricasoftware.co.uk</email>
+            <url>https://github.com/caprica/juds</url>
+            <organization>Caprica Software Limited</organization>
+            <organizationUrl>http://www.capricasoftware.co.uk</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+                <role>owner</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:caprica/juds.git</connection>
+        <developerConnection>scm:git:git@github.com:caprica/juds.git</developerConnection>
+        <url>git@github.com:caprica/juds.git</url>
+    </scm>
+
+</project>
