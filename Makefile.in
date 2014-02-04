@@ -7,6 +7,7 @@ CC = gcc
 JAVA_HOME = @JAVA_HOME@
 JAVAC = @JAVAC@
 JAR = $(JAVA_HOME)/bin/jar
+JAVADOC = $(JAVA_HOME)/bin/javadoc
 JAVAH = $(JAVA_HOME)/bin/javah
 PLATFORM=@PLATFORM@
 PREFIX = /usr
@@ -21,11 +22,26 @@ LIB64=$(NATIVELIB)-$(PLATFORM)-x86_64.$(LIBEXT)
 M32=@M32@
 M64=@M64@
 JARFILE=juds-$(VERSION).jar
+SRCJARFILE=juds-$(VERSION)-sources.jar
+DOCJARFILE=juds-$(VERSION)-javadoc.jar
 UNIJARFILE=juds-$(VERSION)-universal.jar
 
-all: jar 
+all: jar sources javadoc
 
 jar: $(JARFILE)
+
+sources: $(SRCJARFILE)
+
+juds-$(VERSION)-sources.jar:
+	$(JAR) cf $@ $(PACKAGE_DIR)/*.java
+
+javadoc: $(DOCJARFILE)
+
+juds-$(VERSION)-javadoc.jar:
+	rm -rf javadoc
+	mkdir javadoc
+	$(JAVADOC) -sourcepath . -public -d javadoc $(PACKAGE_DIR)/*.java
+	$(JAR) cf $@ -C javadoc .
 
 # requires that the binaries from other platforms are copied here. 
 universal: jar
@@ -87,3 +103,5 @@ test/TestUnixDomainSocketServer.class: test/TestUnixDomainSocketServer.java jar
 
 clean:
 	rm -f $(PACKAGE_DIR)/*.class $(PACKAGE_DIR)/test/*.class $(PACKAGE_DIR)/*.h *.so *.jar $(TEST_SOCKET_FILE) test/*class
+	rm -rf javadoc
+
